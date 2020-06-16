@@ -47,12 +47,19 @@ def sort_odd_even(num):
                 temp = list_even[idx]
                 list_even[idx] = list_even[idx+1]
                 list_even[idx+1] = temp
-    newlist = list_odd + list_even
-    return newlist
-    # for i in list_odd:
-    #     for j in range(len(newlist)):
-    # num[num.index(5)] = list_odd[2]
-
+         idx_odd = []
+    for i in list_odd:
+        idx_odd.append(num.index(i))
+    idx_even = []
+    for i in list_even:
+        idx_even.append(num.index(i))
+    idx_odd.sort()
+    idx_even.sort()
+    for i, ii in list(zip(idx_odd, list_odd)):
+        num[i] = ii
+    for i, ii in list(zip(idx_even, list_even)):
+        num[i] = ii
+    return num
 #Output check
 print(sort_odd_even([5, 3, 2, 8, 1, 4]))
  
